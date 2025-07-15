@@ -9,7 +9,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PRODUCTO")
+@Table(name = "PRODUCTOS")
 public class Producto {
 	
 	@Id
