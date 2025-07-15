@@ -1,4 +1,4 @@
-package com.querubines.commons.models.entities;
+ package com.querubines.commons.models.entities;
 
 import jakarta.persistence.Embeddable;
 

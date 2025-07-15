@@ -9,7 +9,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PRODUCTO")
+@Table(name = "PRODUCTOS")
 public class Producto {
 	
 	@Id
@@ -29,5 +29,5 @@ public class Producto {
 	
 	@Column (name = "STOCK", nullable = false, unique = true)
 	private int stock;
-
+	
 }

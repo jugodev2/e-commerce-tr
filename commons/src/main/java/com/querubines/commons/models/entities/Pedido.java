@@ -15,9 +15,8 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PEDIDO")
+@Table(name = "PEDIDOS")
 public class Pedido {
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PEDIDO_SEQ")
@@ -28,7 +27,7 @@ public class Pedido {
 	@Column (name = "ID_CLIENTE", nullable = false)
 	private Long idCliente;
 	
-	@Column (name = "Total", nullable = false)
+	@Column (name = "TOTAL", nullable = false)
 	private Double total;
 	
 	@Column (name = "FECHA_CREACION", nullable = false)
@@ -43,7 +42,6 @@ public class Pedido {
 
 	public Pedido(Long id, Long idCliente, Double total, Date fechaCreacion, String estado,
 			List<ProductoPedido> productos) {
-		super();
 		this.id = id;
 		this.idCliente = idCliente;
 		this.total = total;
@@ -51,7 +49,6 @@ public class Pedido {
 		this.estado = estado;
 		this.productos = productos;
 	}
-
 	
 	
 	
