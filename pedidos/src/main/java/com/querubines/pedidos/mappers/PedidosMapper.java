@@ -1,6 +1,5 @@
 package com.querubines.pedidos.mappers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.querubines.commons.dtos.ClienteResponse;
@@ -8,7 +7,6 @@ import com.querubines.commons.dtos.PedidoRequest;
 import com.querubines.commons.dtos.PedidoResponse;
 import com.querubines.commons.mappers.CommonMapper;
 import com.querubines.commons.models.entities.Pedido;
-import com.querubines.commons.models.entities.Producto;
 import com.querubines.commons.models.entities.ProductoPedido;
 import com.querubines.pedidos.clients.ClienteClient;
 
