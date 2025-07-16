@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication(scanBasePackages = {"com.querubines.commons.controller", "com.querubines.pedidos"})
+@SpringBootApplication(scanBasePackages = {"com.querubines.commons.controller", "com.querubines.producto"})
 @EntityScan({"com.querubines.commons.models.entities"})
 @EnableFeignClients
 public class ProductosApplication {
