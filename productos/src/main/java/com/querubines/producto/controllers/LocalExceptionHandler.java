@@ -1,4 +1,4 @@
-package com.querubines.productos.controllers;
+package com.querubines.producto.controllers;
 
 
 import java.util.Map;
