@@ -1,4 +1,4 @@
-package com.querubines.productos.controllers;
+package com.querubines.producto.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
