@@ -8,11 +8,11 @@
 		<version>3.4.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pedidos</groupId>
-	<artifactId>pedidos</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>clientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pedidos</name>
-	<description>API E-COMMERCE</description>
+	<name>clientes</name>
+	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -56,13 +56,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.commons</groupId>
 			<artifactId>commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

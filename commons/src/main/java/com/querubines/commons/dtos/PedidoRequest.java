@@ -1,5 +1,6 @@
 package com.querubines.commons.dtos;
 
+import java.util.Date;
 import java.util.List;
 
 import com.querubines.commons.models.entities.ProductoPedido;
@@ -19,7 +20,7 @@ public record PedidoRequest(
 		Double total,
 		
 		@NotBlank(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
-		String fechaCreacion,
+		Date fechaCreacion,
 		
 		@NotBlank(message = "El estado no puede ser ")
 		String estado,
