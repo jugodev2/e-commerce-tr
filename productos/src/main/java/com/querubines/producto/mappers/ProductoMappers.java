@@ -10,14 +10,10 @@ import com.querubines.commons.models.entities.Producto;
 @Component
 public class ProductoMappers extends CommonMapper<ProductoRequest, ProductoResponse, Producto>{
 
-    private final NombreClients nombre;
-
-    ProductoMappers(NombreClients nombre) {
-        this.nombre = nombre;
-    }
+  
 
 	@Override
-	protected ProductoResponse entityToResponse(Producto entity) {
+	public ProductoResponse entityToResponse(Producto entity) {
 		if(entity== null) {
 		return null;
 	}
@@ -30,7 +26,7 @@ public class ProductoMappers extends CommonMapper<ProductoRequest, ProductoRespo
 	}
 
 	@Override
-	protected Producto requestToEntity(ProductoRequest request) {
+	public Producto requestToEntity(ProductoRequest request) {
 	if (request == null) {
 		return null;
 	}
