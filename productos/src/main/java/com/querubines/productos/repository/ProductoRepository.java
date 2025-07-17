@@ -7,5 +7,7 @@ import com.querubines.commons.models.entities.Producto;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
+	
+	
 
 }
