@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.querubines.commons.dtos.PedidoRequest;
 import com.querubines.commons.dtos.PedidoResponse;
 import com.querubines.commons.models.entities.Pedido;
@@ -13,7 +16,7 @@ import com.querubines.pedidos.clients.ProductoClient;
 import com.querubines.pedidos.mappers.PedidosMapper;
 import com.querubines.pedidos.repositories.PedidosRepository;
 
-
+@Service
 public class PedidosServicesImpl implements PedidosService {
 	
 	private PedidosRepository repository;
@@ -31,6 +34,7 @@ public class PedidosServicesImpl implements PedidosService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<PedidoResponse> listar() {
 		List<PedidoResponse> pedidos = new ArrayList<>();
 		repository.findAll().forEach(pedido -> {
@@ -40,6 +44,7 @@ public class PedidosServicesImpl implements PedidosService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Optional<PedidoResponse> obtenerPorId(Long id) {
 		Pedido pedido = repository.findById(id).orElseThrow(NoSuchElementException::new);
 		return Optional.of(mapper.entityToResponse(pedido));
@@ -47,8 +52,9 @@ public class PedidosServicesImpl implements PedidosService {
 
 	@Override
 	public PedidoResponse insertar(PedidoRequest request) {
-	
-		return null;
+		Pedido pedido = mapper.requestToEntity(request);
+		
+		return mapper.entityToResponse(repository.save(pedido));
 	}
 
 	@Override

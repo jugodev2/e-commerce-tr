@@ -37,7 +37,7 @@ public class Pedido {
 	private String estado;
 	
 	@ElementCollection
-	@CollectionTable(name = "PEDIDO_PRODUCTOS", joinColumns = @JoinColumn(name = "ID_PEDIDO"))
+	@CollectionTable(name = "PEDIDO_PRODUCTO", joinColumns = @JoinColumn(name = "ID_PEDIDO"))
 	private List<ProductoPedido> productos;
 
 	public Pedido(Long id, Long idCliente, Double total, Date fechaCreacion, String estado,
