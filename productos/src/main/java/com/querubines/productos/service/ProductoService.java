@@ -1,4 +1,4 @@
-package com.querubines.producto.service;
+package com.querubines.productos.service;
 
 import com.querubines.commons.dtos.ProductoRequest;
 import com.querubines.commons.dtos.ProductoResponse;
