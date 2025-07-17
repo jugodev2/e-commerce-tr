@@ -1,0 +1,50 @@
+spring:
+ application:
+  name: gateway
+
+ security:
+  user:
+   name: ${AUTH_USER}
+   password: ${AUTH_PASS}
+
+ cloud:
+  loadbalancer:
+   enabled: true
+
+  gateway:
+   routes:
+    - id: producto
+      uri: lb://producto
+      predicates:
+        - Path=/api/tipos/**
+      filters:
+        - StripPrefix=2
+
+    - id: region
+      uri: lb://region
+      predicates:
+        - Path=/api/regiones/**
+      filters:
+        - StripPrefix=2
+
+    - id: movimiento
+      uri: lb://movimiento
+      predicates:
+        - Path=/api/movimientos/**
+      filters:
+        - StripPrefix=2
+
+    - id: pokemon
+      uri: lb://pokemon
+      predicates:
+        - Path=/api/pokemones/**
+      filters:
+        - StripPrefix=2
+
+server:
+ port: 8090
+
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://localhost:8761/eureka/
