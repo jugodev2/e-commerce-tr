@@ -2,6 +2,8 @@ package com.querubines.pedidos.mappers;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.querubines.commons.dtos.ClienteResponse;
 import com.querubines.commons.dtos.PedidoRequest;
 import com.querubines.commons.dtos.PedidoResponse;
@@ -10,6 +12,7 @@ import com.querubines.commons.models.entities.Pedido;
 import com.querubines.commons.models.entities.ProductoPedido;
 import com.querubines.pedidos.clients.ClienteClient;
 
+@Component
 public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, Pedido> {
 	
 	private ClienteClient client;
@@ -55,7 +58,7 @@ public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, P
 		pedido.setEstado(request.estado());
 		pedido.setProductos(request.productos());
 		
-		return null;
+		return pedido;
 	}
 
 }
