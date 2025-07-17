@@ -1,0 +1,44 @@
+spring:
+ application:
+  name: gateway
+
+ security:
+  user:
+   name: ${AUTH_USER}
+   password: ${AUTH_PASS}
+
+ cloud:
+  loadbalancer:
+   enabled: true
+
+  gateway:
+   routes:
+    - id: productos
+      uri: lb://productos
+      predicates:
+        - Path=/api/productos/**
+      filters:
+        - StripPrefix=2
+
+    - id: clientes
+      uri: lb://clientes
+      predicates:
+        - Path=/api/clientes/**
+      filters:
+        - StripPrefix=2
+
+    - id: pedidos
+      uri: lb://pedidos
+      predicates:
+        - Path=/api/pedidos/**
+      filters:
+        - StripPrefix=2
+
+
+server:
+ port: 8090
+
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://localhost:8761/eureka/
