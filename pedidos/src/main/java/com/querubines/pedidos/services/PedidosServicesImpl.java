@@ -26,7 +26,6 @@ public class PedidosServicesImpl implements PedidosService {
 
 	public PedidosServicesImpl(PedidosRepository repository, ClienteClient clienteClient, ProductoClient productoClient,
 			PedidosMapper mapper) {
-		super();
 		this.repository = repository;
 		this.clienteClient = clienteClient;
 		this.productoClient = productoClient;
@@ -53,7 +52,8 @@ public class PedidosServicesImpl implements PedidosService {
 	@Override
 	public PedidoResponse insertar(PedidoRequest request) {
 		Pedido pedido = mapper.requestToEntity(request);
-		
+		clienteClient.getCliente(request.idCliente());
+	
 		return mapper.entityToResponse(repository.save(pedido));
 	}
 
@@ -76,11 +76,17 @@ public class PedidosServicesImpl implements PedidosService {
 		return mapper.entityToResponse(pedido);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public boolean existeCliente(Long id) {
 		return repository.existsByClienteId(id);
 	}
 	
 	
+=======
+
+
+
+>>>>>>> d5b6bdc1c817c4cc868f33b7bd290c4ab0b8a8ea
 
 }

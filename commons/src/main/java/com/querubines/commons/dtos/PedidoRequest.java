@@ -9,6 +9,7 @@ import com.querubines.commons.models.entities.ProductoPedido;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -22,6 +23,10 @@ public record PedidoRequest(
 		Double total,
 		
 		@NotNull(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
+<<<<<<< HEAD
+=======
+		@Past(message = "La fecha debe estar en el pasado")
+>>>>>>> d5b6bdc1c817c4cc868f33b7bd290c4ab0b8a8ea
 		Date fechaCreacion,
 		
 		@NotBlank(message = "El estado no puede ser israel.")
