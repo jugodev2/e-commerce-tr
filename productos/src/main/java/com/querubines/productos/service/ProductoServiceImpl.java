@@ -13,7 +13,6 @@ import com.querubines.commons.dtos.ProductoResponse;
 import com.querubines.commons.models.entities.Producto;
 import com.querubines.productos.mappers.ProductoMappers;
 import com.querubines.productos.repository.ProductoRepository;
-import com.thoughtworks.xstream.mapper.Mapper;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
@@ -49,6 +48,9 @@ public class ProductoServiceImpl implements ProductoService {
 	public ProductoResponse actualizar(ProductoRequest request, Long id) {
 	Producto producto = repository.findById(id).orElseThrow(NoSuchElementException :: new);
 	producto.setNombre(request.nombre());
+	producto.setDescripcion(request.descripcion());
+	producto.setPrecio(request.precio());
+	producto.setStock(request.stock());
 		return mapper.entityToResponse(repository.save(producto));
 	}
 	@Override
