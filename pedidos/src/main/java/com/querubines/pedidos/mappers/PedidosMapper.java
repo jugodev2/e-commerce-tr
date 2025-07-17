@@ -19,7 +19,7 @@ public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, P
 	}
 
 	@Override
-	protected PedidoResponse entityToResponse(Pedido entity) {
+	public PedidoResponse entityToResponse(Pedido entity) {
 		if (entity == null) {
 			return null;
 		}
@@ -43,7 +43,7 @@ public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, P
 	}
 
 	@Override
-	protected Pedido requestToEntity(PedidoRequest request) {
+	public Pedido requestToEntity(PedidoRequest request) {
 		if (request == null) {
 			return null;
 		}
