@@ -1,4 +1,4 @@
-package com.querubines.producto.repository;
+package com.querubines.productos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
