@@ -25,7 +25,7 @@ public class Producto {
 	private String descripcion;
 	
 	@Column (name = "PRECIO", nullable = false, unique = true)
-	private Double precio;
+	private Float precio;
 	
 	@Column (name = "STOCK", nullable = false, unique = true)
 	private int stock;
@@ -62,11 +62,11 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public Double getPrecio() {
+	public Float getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
 

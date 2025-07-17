@@ -5,7 +5,7 @@ public record ProductoResponse(
 				Long id, 
 				String nombre, 
 				String descripcion, 
-				Double precio, 
+				Float precio, 
 				int stock
 				
 		) {
