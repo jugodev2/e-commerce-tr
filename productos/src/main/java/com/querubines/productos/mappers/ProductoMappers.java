@@ -1,11 +1,11 @@
-package com.querubines.producto.mappers;
-import com.querubines.producto.clients.NombreClients;
+package com.querubines.productos.mappers;
 import org.springframework.stereotype.Component;
 
 import com.querubines.commons.dtos.ProductoRequest;
 import com.querubines.commons.dtos.ProductoResponse;
 import com.querubines.commons.mappers.CommonMapper;
 import com.querubines.commons.models.entities.Producto;
+import com.querubines.productos.clients.NombreClients;
 
 @Component
 public class ProductoMappers extends CommonMapper<ProductoRequest, ProductoResponse, Producto>{

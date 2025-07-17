@@ -1,4 +1,4 @@
-package com.querubines.producto.clients;
+package com.querubines.productos.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
