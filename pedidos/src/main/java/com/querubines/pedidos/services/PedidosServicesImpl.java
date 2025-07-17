@@ -26,7 +26,6 @@ public class PedidosServicesImpl implements PedidosService {
 
 	public PedidosServicesImpl(PedidosRepository repository, ClienteClient clienteClient, ProductoClient productoClient,
 			PedidosMapper mapper) {
-		super();
 		this.repository = repository;
 		this.clienteClient = clienteClient;
 		this.productoClient = productoClient;
@@ -40,7 +39,7 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.findAll().forEach(pedido -> {
 			pedidos.add(mapper.entityToResponse(pedido));
 		});
-		return null;
+		return pedidos;
 	}
 
 	@Override
@@ -53,7 +52,8 @@ public class PedidosServicesImpl implements PedidosService {
 	@Override
 	public PedidoResponse insertar(PedidoRequest request) {
 		Pedido pedido = mapper.requestToEntity(request);
-		
+		clienteClient.getCliente(request.idCliente());
+	
 		return mapper.entityToResponse(repository.save(pedido));
 	}
 
@@ -77,5 +77,9 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.deleteById(id);
 		return mapper.entityToResponse(pedido);
 	}
+
+
+
+
 
 }

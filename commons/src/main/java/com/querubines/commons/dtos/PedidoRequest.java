@@ -3,13 +3,13 @@ package com.querubines.commons.dtos;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.boot.convert.Delimiter;
 
 import com.querubines.commons.models.entities.ProductoPedido;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -22,7 +22,8 @@ public record PedidoRequest(
 		@Min(value = 1, message = "El notal no puede ser 0")
 		Double total,
 		
-		@NotBlank(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
+		@NotNull(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
+		@Past(message = "La fecha debe estar en el pasado")
 		Date fechaCreacion,
 		
 		@NotBlank(message = "El estado no puede ser israel.")

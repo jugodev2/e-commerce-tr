@@ -1,6 +1,7 @@
 package com.querubines.pedidos.mappers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -8,9 +9,11 @@ import com.querubines.commons.dtos.ClienteResponse;
 import com.querubines.commons.dtos.PedidoRequest;
 import com.querubines.commons.dtos.PedidoResponse;
 import com.querubines.commons.mappers.CommonMapper;
+import com.querubines.commons.models.entities.Cliente;
 import com.querubines.commons.models.entities.Pedido;
 import com.querubines.commons.models.entities.ProductoPedido;
 import com.querubines.pedidos.clients.ClienteClient;
+import com.querubines.pedidos.repositories.PedidosRepository;
 
 @Component
 public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, Pedido> {
@@ -26,17 +29,19 @@ public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, P
 		if (entity == null) {
 			return null;
 		}
-		ClienteResponse cliente = null;
 		
-		if (entity.getIdCliente()!=null) {
-			cliente = client.getCliente(entity.getIdCliente());
+		String nombre = null;
+		
+		if (entity.getIdCliente() != null) {
+			ClienteResponse opt = client.getCliente(entity.getIdCliente());
+			nombre = opt.nombre();
 		}
 		
 		List<ProductoPedido> productos = null;
 		
 		return new PedidoResponse(
 				entity.getId(),
-				cliente.nombre(),
+				nombre,
 				entity.getTotal(),
 				entity.getFechaCreacion(),
 				entity.getEstado(),
@@ -51,8 +56,9 @@ public class PedidosMapper extends CommonMapper<PedidoRequest, PedidoResponse, P
 			return null;
 		}
 		
+		Cliente cliente = new Cliente();
 		Pedido pedido = new Pedido();
-		pedido.setIdCliente(request.idCliente());
+		pedido.setIdCliente(cliente.getId());;
 		pedido.setTotal(request.total());
 		pedido.setFechaCreacion(request.fechaCreacion());
 		pedido.setEstado(request.estado());

@@ -6,4 +6,5 @@ import com.querubines.commons.services.CommonService;
 
 public interface PedidosService extends CommonService<PedidoRequest, PedidoResponse> {
 
+	
 }
