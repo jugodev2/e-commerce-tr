@@ -9,7 +9,7 @@ import com.querubines.commons.dtos.ProductoResponse;
 @FeignClient(name = "productos")
 public interface ProductoClient {
 	
-	@GetMapping("/{id}")
+	@GetMapping("/id-producto/{id}")
 	ProductoResponse getProducto(@PathVariable Long id);
 
 }
