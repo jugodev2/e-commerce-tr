@@ -47,7 +47,7 @@ public class PedidosServicesImpl implements PedidosService {
 
 	@Override
 	public PedidoResponse insertar(PedidoRequest request) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
