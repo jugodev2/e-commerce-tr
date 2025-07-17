@@ -9,7 +9,5 @@ public interface PedidosClient {
 	
 	@GetMapping("/id-clientes/{id}")
 	boolean clienteTienePedidos(@PathVariable Long id);
-		
-
 	
 }

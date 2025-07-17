@@ -3,7 +3,6 @@ package com.querubines.commons.dtos;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.boot.convert.Delimiter;
 
 import com.querubines.commons.models.entities.ProductoPedido;
 
@@ -22,7 +21,7 @@ public record PedidoRequest(
 		@Min(value = 1, message = "El notal no puede ser 0")
 		Double total,
 		
-		@NotBlank(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
+		@NotNull(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
 		Date fechaCreacion,
 		
 		@NotBlank(message = "El estado no puede ser israel.")

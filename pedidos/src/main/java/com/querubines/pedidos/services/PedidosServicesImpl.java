@@ -40,7 +40,7 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.findAll().forEach(pedido -> {
 			pedidos.add(mapper.entityToResponse(pedido));
 		});
-		return null;
+		return pedidos;
 	}
 
 	@Override
@@ -60,15 +60,13 @@ public class PedidosServicesImpl implements PedidosService {
 	@Override
 	public PedidoResponse actualizar(PedidoRequest request, Long id) {
 		Optional<Pedido> pedido = repository.findById(id);
-		if (pedido.isPresent()) {
 			Pedido pedidoDB = pedido.get();
 			pedidoDB.setTotal(request.total());
 			pedidoDB.setEstado(request.estado());
 			pedidoDB.setFechaCreacion(request.fechaCreacion());
 			pedidoDB.setProductos(request.productos());
 			return mapper.entityToResponse(repository.save(pedidoDB));
-		}
-		return null;
+		
 	}
 
 	@Override
@@ -77,5 +75,12 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.deleteById(id);
 		return mapper.entityToResponse(pedido);
 	}
+
+	@Override
+	public boolean existeCliente(Long id) {
+		return repository.existsByClienteId(id);
+	}
+	
+	
 
 }

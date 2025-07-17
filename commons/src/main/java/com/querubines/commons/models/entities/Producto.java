@@ -24,10 +24,10 @@ public class Producto {
 	@Column (name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	
-	@Column (name = "PRECIO", nullable = false, unique = true)
+	@Column (name = "PRECIO", nullable = false, unique = false)
 	private Float precio;
 	
-	@Column (name = "STOCK", nullable = false, unique = true)
+	@Column (name = "STOCK", nullable = false, unique = false)
 	private int stock;
 
 	
