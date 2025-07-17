@@ -1,4 +1,4 @@
-package com.querubines.producto;
+package com.querubines.productos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

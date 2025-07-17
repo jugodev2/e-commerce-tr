@@ -1,11 +1,11 @@
-package com.querubines.producto.controllers;
+package com.querubines.productos.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import com.querubines.commons.controller.CommonController;
 import com.querubines.commons.dtos.ProductoRequest;
 import com.querubines.commons.dtos.ProductoResponse;
-import com.querubines.producto.service.ProductoService;
+import com.querubines.productos.service.ProductoService;
 
 @RestController
 public class ProductoControllers  extends CommonController<ProductoRequest, ProductoResponse, ProductoService >{

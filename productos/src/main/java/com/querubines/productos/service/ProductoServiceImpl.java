@@ -1,4 +1,4 @@
-package com.querubines.producto.service;
+package com.querubines.productos.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.querubines.commons.dtos.ProductoRequest;
 import com.querubines.commons.dtos.ProductoResponse;
 import com.querubines.commons.models.entities.Producto;
-import com.querubines.producto.mappers.ProductoMappers;
-import com.querubines.producto.repository.ProductoRepository;
+import com.querubines.productos.mappers.ProductoMappers;
+import com.querubines.productos.repository.ProductoRepository;
 import com.thoughtworks.xstream.mapper.Mapper;
 
 @Service
