@@ -13,33 +13,27 @@ spring:
 
   gateway:
    routes:
-    - id: producto
-      uri: lb://producto
+    - id: productos
+      uri: lb://productos
       predicates:
-        - Path=/api/tipos/**
+        - Path=/api/productos/**
       filters:
         - StripPrefix=2
 
-    - id: region
-      uri: lb://region
+    - id: clientes
+      uri: lb://clientes
       predicates:
-        - Path=/api/regiones/**
+        - Path=/api/clientes/**
       filters:
         - StripPrefix=2
 
-    - id: movimiento
-      uri: lb://movimiento
+    - id: pedidos
+      uri: lb://pedidos
       predicates:
-        - Path=/api/movimientos/**
+        - Path=/api/pedidos/**
       filters:
         - StripPrefix=2
 
-    - id: pokemon
-      uri: lb://pokemon
-      predicates:
-        - Path=/api/pokemones/**
-      filters:
-        - StripPrefix=2
 
 server:
  port: 8090
