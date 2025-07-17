@@ -28,12 +28,12 @@ public class Cliente {
 	private String email;
 	
 	@Column (name = "TELEFONO", nullable = false, unique = true)
-	private int telefono;
+	private Long telefono;
 	
 	@Column (name = "DIRECCION", nullable = false)
 	private String direccion;
 
-	public Cliente(Long id, String nombre, String apellido, String email, int telefono, String direccion) {
+	public Cliente(Long id, String nombre, String apellido, String email, Long telefono, String direccion) {
 
 		this.id = id;
 		this.nombre = nombre;
@@ -45,6 +45,8 @@ public class Cliente {
 	
 
 	public Cliente() {
+	
+		
 		
 	}
 
@@ -81,11 +83,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 

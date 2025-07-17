@@ -5,7 +5,7 @@ public record ClienteResponse(
 		String nombre,
 		String apellido,
 		String email,
-		int telefono,
+		Long telefono,
 		String direccion
 		) {
 
