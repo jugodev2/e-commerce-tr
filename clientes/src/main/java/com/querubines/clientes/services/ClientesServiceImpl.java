@@ -66,6 +66,7 @@ public class ClientesServiceImpl implements ClientesService {
 
 	@Override
 	public ClienteResponse eliminar(Long id) {
+		System.out.println("Eliminando cliente con ID: " + id);
 		Cliente cliente = repository.findById(id).orElseThrow(NoSuchElementException::new);
 		boolean tienePedidos = pedidosClient.clienteTienePedidos(id);
 		if (tienePedidos) {

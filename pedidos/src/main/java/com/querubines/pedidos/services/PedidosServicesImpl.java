@@ -76,20 +76,18 @@ public class PedidosServicesImpl implements PedidosService {
 		return mapper.entityToResponse(pedido);
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	@Override
 	public boolean existeCliente(Long id) {
-		return repository.existsByClienteId(id);
+		List<Pedido> pedidos = repository.findByIdCliente(id);
+		if (pedidos.isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+		
 	}
 	
 	
-=======
 
-
-
->>>>>>> d5b6bdc1c817c4cc868f33b7bd290c4ab0b8a8ea
-
-=======
->>>>>>> 2a5d13ea113a341f8e05777d5a3529b84259d7d1
 }
