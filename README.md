@@ -22,8 +22,21 @@ Bienvenido a E-COMMERCE-TR, un pequeño pero eficaz sistema de pedidos.
     - Clientes
     - Pedidos
   - Finalmente levanta el Gateway.
+    
+## 📬 Endpoints REST
 
-## Rutas de Consulta
+### 🟢 GET
+- `GET /api/pedidos` → Listar todos los pedidos
+- `GET /api/pedidos/{id}` → Obtener pedido por ID
+
+### 🟡 POST
+- `POST /api/pedidos` → Crear nuevo pedido
+
+### 🔵 PUT
+- `PUT /api/pedidos/{id}` → Actualizar pedido existente
+
+### 🔴 DELETE
+- `DELETE /api/pedidos/{id}` → Eliminar pedido por ID
 ```bash
 [https://github.com/jugodev2/e-commerce-tr.git]
 
