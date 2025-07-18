@@ -53,7 +53,6 @@ public class PedidosServicesImpl implements PedidosService {
 	public PedidoResponse insertar(PedidoRequest request) {
 		Pedido pedido = mapper.requestToEntity(request);
 		clienteClient.getCliente(request.idCliente());
-	
 		return mapper.entityToResponse(repository.save(pedido));
 	}
 
@@ -62,6 +61,7 @@ public class PedidosServicesImpl implements PedidosService {
 		Optional<Pedido> pedido = repository.findById(id);
 		if (pedido.isPresent()) {
 			Pedido pedidoDB = pedido.get();
+			pedidoDB.setIdCliente(request.idCliente());
 			pedidoDB.setTotal(request.total());
 			pedidoDB.setEstado(request.estado());
 			pedidoDB.setFechaCreacion(request.fechaCreacion());
@@ -77,9 +77,5 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.deleteById(id);
 		return mapper.entityToResponse(pedido);
 	}
-
-
-
-
 
 }
