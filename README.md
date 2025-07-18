@@ -26,17 +26,45 @@ Bienvenido a E-COMMERCE-TR, un pequeño pero eficaz sistema de pedidos.
 ## 📬 Endpoints REST
 
 ### 🟢 GET
-- `GET /api/pedidos` → Listar todos los pedidos
-- `GET /api/pedidos/{id}` → Obtener pedido por ID
+
+| Recurso   | Endpoint                        | Descripción                      |
+|-----------|----------------------------------|----------------------------------|
+| Pedidos   | `GET /api/pedidos`              | Listar todos los pedidos         |
+| Pedidos   | `GET /api/pedidos/{id}`         | Obtener pedido por ID            |
+| Productos | `GET /api/productos`            | Listar todos los productos       |
+| Productos | `GET /api/productos/{id}`       | Obtener producto por ID          |
+| Clientes  | `GET /api/clientes`             | Listar todos los clientes        |
+| Clientes  | `GET /api/clientes/{id}`        | Obtener cliente por ID           |
+
+---
 
 ### 🟡 POST
-- `POST /api/pedidos` → Crear nuevo pedido
+
+| Recurso   | Endpoint                        | Descripción                      |
+|-----------|----------------------------------|----------------------------------|
+| Pedidos   | `POST /api/pedidos`             | Crear nuevo pedido               |
+| Productos | `POST /api/productos`           | Crear nuevo producto             |
+| Clientes  | `POST /api/clientes`            | Registrar nuevo cliente          |
+
+---
 
 ### 🔵 PUT
-- `PUT /api/pedidos/{id}` → Actualizar pedido existente
+
+| Recurso   | Endpoint                        | Descripción                      |
+|-----------|----------------------------------|----------------------------------|
+| Pedidos   | `PUT /api/pedidos/{id}`         | Actualizar pedido existente      |
+| Productos | `PUT /api/productos/{id}`       | Actualizar producto existente    |
+| Clientes  | `PUT /api/clientes/{id}`        | Actualizar datos del cliente     |
+
+---
 
 ### 🔴 DELETE
-- `DELETE /api/pedidos/{id}` → Eliminar pedido por ID
+
+| Recurso   | Endpoint                        | Descripción                      |
+|-----------|----------------------------------|----------------------------------|
+| Pedidos   | `DELETE /api/pedidos/{id}`      | Eliminar pedido por ID           |
+| Productos | `DELETE /api/productos/{id}`    | Eliminar producto por ID         |
+| Clientes  | `DELETE /api/clientes/{id}`     | Eliminar cliente por ID          |
 ```bash
 [https://github.com/jugodev2/e-commerce-tr.git]
 
