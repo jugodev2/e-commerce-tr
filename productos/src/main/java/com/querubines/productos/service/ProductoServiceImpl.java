@@ -26,6 +26,7 @@ public class ProductoServiceImpl implements ProductoService {
 		this.mapper = mapper;
 	}
 	@Override
+	@Transactional(readOnly = true)
 	public List<ProductoResponse> listar() {
 		List<ProductoResponse>productos = new ArrayList<>();
 		repository.findAll().forEach(producto->{
