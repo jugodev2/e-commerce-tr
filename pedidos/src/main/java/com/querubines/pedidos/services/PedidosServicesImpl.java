@@ -53,7 +53,6 @@ public class PedidosServicesImpl implements PedidosService {
 	public PedidoResponse insertar(PedidoRequest request) {
 		Pedido pedido = mapper.requestToEntity(request);
 		clienteClient.getCliente(request.idCliente());
-	
 		return mapper.entityToResponse(repository.save(pedido));
 	}
 
@@ -61,6 +60,7 @@ public class PedidosServicesImpl implements PedidosService {
 	public PedidoResponse actualizar(PedidoRequest request, Long id) {
 		Optional<Pedido> pedido = repository.findById(id);
 			Pedido pedidoDB = pedido.get();
+			pedidoDB.setIdCliente(request.idCliente());
 			pedidoDB.setTotal(request.total());
 			pedidoDB.setEstado(request.estado());
 			pedidoDB.setFechaCreacion(request.fechaCreacion());
@@ -77,6 +77,7 @@ public class PedidosServicesImpl implements PedidosService {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@Override
 	public boolean existeCliente(Long id) {
 		return repository.existsByClienteId(id);
@@ -89,4 +90,6 @@ public class PedidosServicesImpl implements PedidosService {
 
 >>>>>>> d5b6bdc1c817c4cc868f33b7bd290c4ab0b8a8ea
 
+=======
+>>>>>>> 2a5d13ea113a341f8e05777d5a3529b84259d7d1
 }
