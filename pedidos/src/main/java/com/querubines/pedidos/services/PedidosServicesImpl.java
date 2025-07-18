@@ -59,7 +59,6 @@ public class PedidosServicesImpl implements PedidosService {
 	@Override
 	public PedidoResponse actualizar(PedidoRequest request, Long id) {
 		Optional<Pedido> pedido = repository.findById(id);
-		if (pedido.isPresent()) {
 			Pedido pedidoDB = pedido.get();
 			pedidoDB.setIdCliente(request.idCliente());
 			pedidoDB.setTotal(request.total());
@@ -67,8 +66,7 @@ public class PedidosServicesImpl implements PedidosService {
 			pedidoDB.setFechaCreacion(request.fechaCreacion());
 			pedidoDB.setProductos(request.productos());
 			return mapper.entityToResponse(repository.save(pedidoDB));
-		}
-		return null;
+		
 	}
 
 	@Override
@@ -77,5 +75,19 @@ public class PedidosServicesImpl implements PedidosService {
 		repository.deleteById(id);
 		return mapper.entityToResponse(pedido);
 	}
+
+
+	@Override
+	public boolean existeCliente(Long id) {
+		List<Pedido> pedidos = repository.findByIdCliente(id);
+		if (pedidos.isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
+		
+	}
+	
+	
 
 }

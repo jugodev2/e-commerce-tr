@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.querubines.clientes.clients.PedidosClient;
 import com.querubines.clientes.mappers.ClientesMapper;
 import com.querubines.clientes.repository.ClientesRepository;
 import com.querubines.commons.dtos.ClienteRequest;
@@ -16,14 +17,17 @@ import com.querubines.commons.models.entities.Cliente;
 @Service
 public class ClientesServiceImpl implements ClientesService {
 	private final ClientesRepository repository;
-	private final ClientesMapper mapper;;
+	private final ClientesMapper mapper;
+	private final PedidosClient pedidosClient;
 	
 	
 
-	public ClientesServiceImpl(ClientesRepository repository, ClientesMapper mapper) {
+
+	public ClientesServiceImpl(ClientesRepository repository, ClientesMapper mapper, PedidosClient pedidosClient) {
 		super();
 		this.repository = repository;
 		this.mapper = mapper;
+		this.pedidosClient = pedidosClient;
 	}
 
 	@Override
@@ -62,10 +66,17 @@ public class ClientesServiceImpl implements ClientesService {
 
 	@Override
 	public ClienteResponse eliminar(Long id) {
+		System.out.println("Eliminando cliente con ID: " + id);
 		Cliente cliente = repository.findById(id).orElseThrow(NoSuchElementException::new);
-		repository.delete(cliente);
-		return mapper.entityToResponse(cliente);
+		boolean tienePedidos = pedidosClient.clienteTienePedidos(id);
+		if (tienePedidos) {
+			throw new IllegalStateException("El cliente no puede ser eliminado porque tiene pedidos asociados.");
+		} else {
+			repository.delete(cliente);
+			return mapper.entityToResponse(cliente);
+		}
 	}
+	
 
 	
 }

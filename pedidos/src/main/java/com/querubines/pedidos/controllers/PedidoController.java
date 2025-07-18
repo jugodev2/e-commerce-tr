@@ -2,6 +2,9 @@ package com.querubines.pedidos.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.querubines.commons.controller.CommonController;
@@ -15,8 +18,14 @@ public class PedidoController extends CommonController<PedidoRequest, PedidoResp
 
 	public PedidoController(PedidosService service) {
 		super(service);
-		// TODO Auto-generated constructor stub
 	}
+	
+	@GetMapping("/id-clientes/{id}")
+	public ResponseEntity<Boolean> existeCliente(@PathVariable Long id) {
+		boolean existe = service.existeCliente(id);
+		return ResponseEntity.ok(existe);
+	}
+	
 
 
 
