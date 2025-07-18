@@ -25,5 +25,5 @@ Bienvenido a E-COMMERCE-TR, un pequeño pero eficaz sistema de pedidos.
 
 ## Rutas de Consulta
 ```bash
-git clone https://github.com/usuario/proyecto.git
+[https://github.com/jugodev2/e-commerce-tr.git]
 
