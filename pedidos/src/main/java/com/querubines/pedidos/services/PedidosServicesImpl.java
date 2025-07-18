@@ -72,8 +72,9 @@ public class PedidosServicesImpl implements PedidosService {
 	@Override
 	public PedidoResponse eliminar(Long id) {
 		Pedido pedido = repository.findById(id).orElseThrow(NoSuchElementException::new);
+		PedidoResponse response = mapper.entityToResponse(pedido);
 		repository.deleteById(id);
-		return mapper.entityToResponse(pedido);
+		return response;
 	}
 
 
