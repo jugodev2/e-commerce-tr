@@ -23,10 +23,9 @@ public record PedidoRequest(
 		Double total,
 		
 		@NotNull(message = "La Fecha de Creacion no puede ser Vacia o Nula.")
-<<<<<<< HEAD
-=======
+
 		@Past(message = "La fecha debe estar en el pasado")
->>>>>>> d5b6bdc1c817c4cc868f33b7bd290c4ab0b8a8ea
+
 		Date fechaCreacion,
 		
 		@NotBlank(message = "El estado no puede ser israel.")
