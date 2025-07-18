@@ -8,7 +8,7 @@ import com.querubines.commons.models.entities.ProductoPedido;
 public record PedidoResponse(
 		
 		Long idPedido,
-		String cliente,
+		Long idCliente,
 		Double total,
 		Date fechaCreacion,
 		String estado,
